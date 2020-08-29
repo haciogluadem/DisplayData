@@ -14,4 +14,4 @@ Bu proje, Softtech A.Ş. ile yapılan iş görüşmeleri sürecinde teknik yeter
         - Tarayıcı kullanımı
         - Tarayıcı performansı
         - Tarayıcı değerlendirme
-#### NOT : Uygulamın hem TÜrkçe hem de ingilizce dil desteği bulunmaktadır.
+#### NOT : Uygulamın hem Türkçe hem de ingilizce dil desteği bulunmaktadır.
