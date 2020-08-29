@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/standart_bottom_margin">
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spinner_height"
+            android:spinnerMode="dropdown"
+            style="@android:style/Widget.Holo.Light.Spinner"
+            android:layout_marginTop="@dimen/standart_top_margin"
+            android:layout_margin="@dimen/standart_margin"
+            android:prompt="@string/select_counry" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="@dimen/standart_bottom_margin"
+            android:text="@string/browser_usage"
+            android:background="@color/ligth_bacground"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/title_text_size"/>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/chart_height"
+            android:layout_margin="@dimen/standart_bottom_margin" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="@dimen/standart_bottom_margin"
+            android:text="@string/browser_performance"
+            android:background="@color/ligth_bacground"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/title_text_size"/>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chart2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/chart_height"
+            android:layout_marginRight="@dimen/standart_right_margin"
+            android:layout_marginTop="@dimen/standart_top_margin"
+            android:layout_marginBottom="@dimen/standart_bottom_margin"/>
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/standart_top_margin" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="@dimen/standart_bottom_margin"
+            android:text="@string/browser_rating"
+            android:background="@color/ligth_bacground"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/title_text_size"/>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chart3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/chart_height"
+            android:layout_marginRight="@dimen/standart_right_margin"
+            android:layout_marginTop="@dimen/standart_top_margin"
+            android:layout_marginBottom="80dp"/>
+    </LinearLayout>
+</ScrollView>

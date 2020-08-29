@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Display Data</string>
+    <string name="list">Liste</string>
+    <string name="detail">Detay</string>
+    <string name="charts">Grafikler</string>
+    <string name="analyzes">Analizler</string>
+    <string name="platform">Platform: </string>
+    <string name="labels">Etiketler: </string>
+    <string name="performance">Performans: </string>
+    <string name="performance_v2">Performans</string>
+    <string name="rating">Değerlendirme</string>
+    <string name="browser_rating">Tarayıcı Değerlendirme</string>
+    <string name="sort">Sırala</string>
+    <string name="back">Geri</string>
+    <string name="search_hint">Ara: etiket, platform, tarayıcı</string>
+    <string name="show_analysis">Analizleri göster</string>
+    <string name="browser_performance">Tarayıcı Performansı</string>
+    <string name="as_country">Ülkelere Göre</string>
+    <string name="browser_usage">Tarayıcı Kullanımı</string>
+    <string name="browser">Tarayıcı</string>
+    <string name="select_counry">Ülke Seçiniz</string>
+    <string name="sort_by">Sırala</string>
+    <string name="sort_by_browsername">Tarayıcı adı</string>
+    <string name="sort_by_platform">Platform</string>
+    <string name="sort_by_country">Ülke</string>
+    <string name="sort_by_rating_asc">Değerlendirme(Artan)</string>
+    <string name="sort_by_rating_desc">Değerlendirme(Azalan)</string>
+    <string name="sort_by_performance_asc">Performans(Artan)</string>
+    <string name="sort_by_performance_desc">Performans(Azalan)</string>
+    <string name="filter_info">%1$d adet kayıt bulunmuştur.</string>
+</resources>

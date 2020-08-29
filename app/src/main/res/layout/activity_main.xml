@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity">
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:queryHint="@string/search_hint"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/standart_top_margin"
+        android:layout_marginLeft="@dimen/standart_left_margin"
+        android:layout_marginRight="@dimen/standart_right_margin"
+        android:background="@drawable/drawable_search_view"/>
+
+    <TextView
+        android:id="@+id/filter_info_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_view"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/standart_top_margin"
+        android:layout_marginLeft="@dimen/standart_left_margin"
+        android:layout_marginRight="@dimen/standart_right_margin"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_rw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/filter_info_tv"
+        android:layout_above="@+id/analysis_btn"
+        android:layout_marginLeft="@dimen/standart_left_margin"
+        android:layout_marginRight="@dimen/standart_right_margin"
+        android:layout_marginTop="@dimen/standart_top_margin"
+        android:layout_marginBottom="@dimen/standart_bottom_margin"/>
+
+    <Button
+        android:id="@+id/analysis_btn"
+        android:layout_width="match_parent"
+        android:background="@drawable/drawable_button_selector"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/show_analysis"
+        android:textColor="@color/btn_text_color"
+        android:layout_marginLeft="@dimen/standart_left_margin"
+        android:layout_marginRight="@dimen/standart_right_margin"
+        android:layout_marginBottom="@dimen/standart_bottom_margin"/>
+
+</RelativeLayout>

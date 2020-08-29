@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="ligth_bacground">#81EBE7E7</color>
+
+    <color name="list_item_black">#000000</color>
+    <color name="list_item_clicked_color">#E9E9E9</color>
+    <color name="icon_gray">#A7A5A5</color>
+    <color name="icon_colored">#008577</color>
+
+    <color name="btn_disabled">#A7A5A5</color>
+    <color name="btn_text_color">#FFFFFF</color>
+
+
+</resources>

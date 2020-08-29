@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Display Data</string>
+    <string name="list">List</string>
+    <string name="detail">Detail</string>
+    <string name="charts">Charts</string>
+    <string name="analyzes">Analyzes</string>
+    <string name="platform">Platform: </string>
+    <string name="labels">Labels: </string>
+    <string name="performance">Performance: </string>
+    <string name="performance_v2">Performance</string>
+    <string name="rating">Rating</string>
+    <string name="browser_rating">Browser Rating</string>
+    <string name="sort">Sort</string>
+    <string name="back">Back</string>
+    <string name="search_hint">Search: label, platform, browser</string>
+    <string name="show_analysis">Show Analysis</string>
+    <string name="browser_performance">Browser Performance</string>
+    <string name="as_country">About Countries</string>
+    <string name="browser_usage">Browser Usage</string>
+    <string name="browser">Browser</string>
+    <string name="select_counry">Select Country</string>
+    <string name="sort_by">Sort by</string>
+    <string name="sort_by_browsername">browser name</string>
+    <string name="sort_by_platform">platform</string>
+    <string name="sort_by_country">country</string>
+    <string name="sort_by_rating_asc">rating(Ascending)</string>
+    <string name="sort_by_rating_desc">rating(Descending)</string>
+    <string name="sort_by_performance_asc">performance(Ascending)</string>
+    <string name="sort_by_performance_desc">performance(Descending)</string>
+    <string name="filter_info">Found %1$d record(s).</string>
+</resources>
