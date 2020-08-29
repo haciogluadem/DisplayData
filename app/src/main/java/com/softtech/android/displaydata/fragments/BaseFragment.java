@@ -26,10 +26,10 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.softtech.android.displaydata.models.BrowserChartInfo;
 import com.softtech.android.displaydata.models.BrowserSummaryInfos;
+import com.softtech.android.displaydata.utils.ColorUtils;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Random;
 
 public class BaseFragment extends Fragment {
 
@@ -144,18 +144,20 @@ public class BaseFragment extends Fragment {
 
     protected void setDataForUsage(PieChart chart) {
         ArrayList<PieEntry> entries = new ArrayList<>();
+        ArrayList<Integer> colors = new ArrayList<>();
+
         for(Map.Entry<String, BrowserChartInfo> entry : browserSummaryInfos.getChartInfo().entrySet()) {
             String key = entry.getKey();
             float percentage = browserSummaryInfos.getBrowserPercentage(entry.getKey());
             entries.add(new PieEntry(percentage/100.0f, key));
+
+            colors.add(ColorUtils.getInstance().getColor(key));
         }
         PieDataSet dataSet = new PieDataSet(entries, "");
         dataSet.setDrawIcons(false);
         dataSet.setSliceSpace(3f);
         dataSet.setIconsOffset(new MPPointF(0, 40));
         dataSet.setSelectionShift(5f);
-
-        ArrayList<Integer> colors = getColors();
 
         dataSet.setColors(colors);
         PieData data = new PieData(dataSet);
@@ -184,8 +186,7 @@ public class BaseFragment extends Fragment {
             }else {
                 set1 = new BarDataSet(values, key);
             }
-            Random r = new Random();
-            set1.setColor(Color.rgb(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
+            set1.setColor(ColorUtils.getInstance().getColor(key));
             data.addDataSet(set1);
         }
 
@@ -213,8 +214,7 @@ public class BaseFragment extends Fragment {
             }else {
                 set1 = new BarDataSet(values, key);
             }
-            Random r = new Random();
-            set1.setColor(Color.rgb(r.nextInt(255), r.nextInt(255), r.nextInt(255)));
+            set1.setColor(ColorUtils.getInstance().getColor(key));
             data.addDataSet(set1);
         }
 
@@ -237,27 +237,5 @@ public class BaseFragment extends Fragment {
         s.setSpan(new StyleSpan(Typeface.ITALIC), s.length(), s.length(), 0);
         s.setSpan(new ForegroundColorSpan(ColorTemplate.getHoloBlue()), s.length(), s.length(), 0);
         return s;
-    }
-
-    protected ArrayList<Integer>  getColors(){
-        ArrayList<Integer> colors = new ArrayList<>();
-
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.JOYFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.COLORFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.LIBERTY_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.PASTEL_COLORS)
-            colors.add(c);
-
-        colors.add(ColorTemplate.getHoloBlue());
-        return colors;
     }
 }

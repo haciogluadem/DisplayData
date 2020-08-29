@@ -13,6 +13,7 @@ import com.softtech.android.displaydata.R;
 import com.softtech.android.displaydata.custom_views.RatingView;
 import com.softtech.android.displaydata.interfaces.IGenericItemClicked;
 import com.softtech.android.displaydata.models.DataItem;
+import com.softtech.android.displaydata.utils.ColorUtils;
 
 import java.util.ArrayList;
 
@@ -60,6 +61,7 @@ public class DataItemListAdapter extends RecyclerView.Adapter<DataItemListAdapte
 
         private TextView tv1, tv2, tv3, tv4, tv5;
         private LinearLayout root;
+        private View indicatorView;
         private RatingView ratingView;
 
         public CustomViewHolder(View itemView){
@@ -70,6 +72,7 @@ public class DataItemListAdapter extends RecyclerView.Adapter<DataItemListAdapte
             tv3 = itemView.findViewById(R.id.tv3);
             tv4 = itemView.findViewById(R.id.tv4);
             tv5 = itemView.findViewById(R.id.tv5);
+            indicatorView = itemView.findViewById(R.id.indicator_view);
             ratingView = itemView.findViewById(R.id.rating_view);
             root.setOnClickListener(this);
         }
@@ -102,6 +105,9 @@ public class DataItemListAdapter extends RecyclerView.Adapter<DataItemListAdapte
             str = TextUtils.isEmpty(item.getGeo().getCity()) ? "-" : item.getGeo().getCity();
             str += " / " + (TextUtils.isEmpty(item.getComputedLocation()) ? "-" : item.getComputedLocation());
             tv5.setText(str);
+
+            //indicator view color
+            indicatorView.setBackgroundColor(ColorUtils.getInstance().getColor(item.getComputedBrowser().getBrowser()));
         }
 
 
