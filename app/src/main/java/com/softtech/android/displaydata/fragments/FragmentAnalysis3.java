@@ -64,6 +64,9 @@ public class FragmentAnalysis3 extends BaseFragment {
 
         selectedCountry = TextUtils.isEmpty(selectedCountry) ? "Turkey" : selectedCountry;
         this.browserSummaryInfos = this.countrySummaryInfos.getChartInfo().get(selectedCountry);
+        if(this.browserSummaryInfos == null){
+            this.browserSummaryInfos = new BrowserSummaryInfos();
+        }
 
         initializeSpinner1(spin1);
         initializeChart(pieChart, StringResources.loadString(R.string.browser_usage));

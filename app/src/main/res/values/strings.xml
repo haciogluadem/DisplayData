@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Display Data</string>
+    <string name="ok">Ok</string>
+    <string name="error">Error</string>
     <string name="list">List</string>
     <string name="detail">Detail</string>
     <string name="charts">Charts</string>
@@ -28,4 +30,7 @@
     <string name="sort_by_performance_asc">performance(Ascending)</string>
     <string name="sort_by_performance_desc">performance(Descending)</string>
     <string name="filter_info">Found %1$d record(s).</string>
+
+    <string name="error_message1">An error occured While loading json. Please check the file.</string>
+    <string name="error_message2">An error occured While parsing json. Please check the file.</string>
 </resources>

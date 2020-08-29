@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Display Data</string>
+    <string name="ok">Tamam</string>
+    <string name="error">Hata</string>
     <string name="list">Liste</string>
     <string name="detail">Detay</string>
     <string name="charts">Grafikler</string>
@@ -29,4 +31,7 @@
     <string name="sort_by_performance_asc">Performans(Artan)</string>
     <string name="sort_by_performance_desc">Performans(Azalan)</string>
     <string name="filter_info">%1$d adet kayıt bulunmuştur.</string>
+
+    <string name="error_message1">Json yüklenirken hata oluştu. Lütfen kontrol ediniz.</string>
+    <string name="error_message2">Json parse edilirken hata oluştu. Lütfen kontrol ediniz.</string>
 </resources>

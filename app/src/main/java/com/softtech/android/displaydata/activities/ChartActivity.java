@@ -18,6 +18,7 @@ import com.softtech.android.displaydata.models.BrowserChartInfo;
 import com.softtech.android.displaydata.models.BrowserSummaryInfos;
 import com.softtech.android.displaydata.models.CountrySummaryInfos;
 import com.softtech.android.displaydata.models.DataItem;
+import com.softtech.android.displaydata.models.DataItems;
 import com.softtech.android.displaydata.utils.Keys;
 import com.softtech.android.displaydata.utils.StringResources;
 
@@ -28,7 +29,7 @@ import java.util.Map;
 
 public class ChartActivity extends BaseActivity{
 
-    private ArrayList<DataItem> mItems;
+    private DataItems mDataItems;
     private BrowserSummaryInfos browserSummaryInfos;
     private CountrySummaryInfos countrySummaryInfos;
 
@@ -45,8 +46,8 @@ public class ChartActivity extends BaseActivity{
         setSupportActionBar(toolbar);
         setToolBarInfo(StringResources.loadString(R.string.charts), "", true);
 
-        browserSummaryInfos = getBrowsersInfo(Enums.FilterType.NONE, "");
-        countrySummaryInfos = getCountrySummaryInfos();
+        browserSummaryInfos = mDataItems.getBrowsersInfo(Enums.FilterType.NONE, "");
+        countrySummaryInfos = mDataItems.getCountrySummaryInfos();
 
         viewPager = findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -58,57 +59,10 @@ public class ChartActivity extends BaseActivity{
     @Override
     protected void getIntentData() {
         super.getIntentData();
-        mItems = (ArrayList<DataItem>) getIntent().getSerializableExtra(Keys.KEY_DATA_ITEMS);
-    }
-
-    /**
-     * Herbir browser ozelinde performans ve rating degerlerini hesaplar
-     * @param filterType
-     * @param countryName
-     * @return
-     */
-    private BrowserSummaryInfos getBrowsersInfo(Enums.FilterType filterType, String countryName){
-        BrowserSummaryInfos bsi = new BrowserSummaryInfos();
-        Map<String,BrowserChartInfo> browserMap = new HashMap<>();
-        for (DataItem item : mItems){
-
-            if(filterType == Enums.FilterType.BY_COUNTRY && countryName.compareTo(item.getComputedLocation()) != 0){
-                continue;
-            }
-            if(!browserMap.containsKey(item.getComputedBrowser().getBrowser())){
-                BrowserChartInfo chartInfo = new BrowserChartInfo();
-                chartInfo.setBrowserName(item.getComputedBrowser().getBrowser());
-                chartInfo.setBrowserCount(0);
-                chartInfo.setSumOfPerformance(0);
-                chartInfo.setSumOfRating(0);
-
-                browserMap.put(item.getComputedBrowser().getBrowser(),chartInfo);
-            }
-
-            BrowserChartInfo bci = browserMap.get(item.getComputedBrowser().getBrowser());
-            bci.setBrowserCount(bci.getBrowserCount()+1);
-            bci.setSumOfPerformance(bci.getSumOfPerformance() + item.getPerformance());
-            bci.setSumOfRating(bci.getSumOfRating() + item.getRating());
+        mDataItems = (DataItems) getIntent().getSerializableExtra(Keys.KEY_DATA_ITEMS);
+        if (mDataItems == null){
+            mDataItems = new DataItems();
         }
-        bsi.setChartInfo(browserMap);
-        return bsi;
-    }
-
-    /**
-     * herbir Ulke ozelinde browser'in istatiki verilerini toplar
-     * @return
-     */
-    private CountrySummaryInfos getCountrySummaryInfos(){
-        CountrySummaryInfos csi = new CountrySummaryInfos();
-        Map<String, BrowserSummaryInfos> browserMap = new HashMap<>();
-        for (DataItem item : mItems){
-            if(!browserMap.containsKey(item.getComputedLocation())){
-                BrowserSummaryInfos bsi = getBrowsersInfo(Enums.FilterType.BY_COUNTRY, item.getComputedLocation());
-                browserMap.put(item.getComputedLocation(), bsi);
-            }
-        }
-        csi.setChartInfo(browserMap);
-        return csi;
     }
 
     private void setupViewPager(ViewPager viewPager) {

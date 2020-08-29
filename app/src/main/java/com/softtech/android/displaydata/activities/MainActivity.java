@@ -20,15 +20,13 @@ import com.softtech.android.displaydata.models.DataItem;
 import com.softtech.android.displaydata.models.DataItems;
 import com.softtech.android.displaydata.utils.ActivityController;
 import com.softtech.android.displaydata.utils.AlertDialogUtils;
+import com.softtech.android.displaydata.utils.FileOperations;
 import com.softtech.android.displaydata.utils.Keys;
 import com.softtech.android.displaydata.utils.StringResources;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.stream.Stream;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener, SearchView.OnQueryTextListener {
 
@@ -59,12 +57,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     private void fetchAndPrepareData(){
-        String jsonString = loadFile();
-        Gson g = new Gson();
-        DataItems dataItems = g.fromJson(jsonString, DataItems.class);
-        mFilteredItems = mItems = dataItems.getItems();
-        sortBy = Enums.SortType.BY_BROWSERNAME;
-        sort();
+        String jsonString = FileOperations.loadFromAsset(getBaseContext(), R.raw.demo);
+        if(TextUtils.isEmpty(jsonString)){
+            AlertDialogUtils.showAlertDialogOneButton(this, StringResources.loadString(R.string.error),
+                    StringResources.loadString(R.string.error_message1), null);
+
+            mFilteredItems = mItems = new ArrayList<>();
+            return;
+        }
+
+        try {
+            Gson g = new Gson();
+            DataItems dataItems = g.fromJson(jsonString, DataItems.class);
+            mFilteredItems = mItems = dataItems.getItems();
+            sortBy = Enums.SortType.BY_BROWSERNAME;
+            sort();
+        }catch (Exception e){
+            AlertDialogUtils.showAlertDialogOneButton(this, StringResources.loadString(R.string.error),
+                    StringResources.loadString(R.string.error_message2), null);
+
+            mFilteredItems = mItems = new ArrayList<>();
+        }
     }
 
     private void initializeList(){
@@ -152,28 +165,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         updateList();
     }
 
-    private String loadFile(){
-        String json = null;
-        try {
-            InputStream in = getResources().openRawResource(R.raw.demo);
-
-            int size = in.available();
-            byte[] buffer = new byte[size];
-            in.read(buffer);
-            in.close();
-            json = new String(buffer);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return json;
-    }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.analysis_btn:
                 ActivityController.startActivity(this, ChartActivity.class,
-                        Keys.KEY_DATA_ITEMS, mItems, false);
+                        Keys.KEY_DATA_ITEMS, new DataItems(mItems), false);
                 break;
             default:
                 break;
