@@ -1,5 +1,5 @@
 # Android Challenge
-Bu proje, Softtech A.Ş. ile yapılan iş görüşmeleri sürecinde teknik yeterliliği ölçmek için yapılmıştır.
+Bu proje, içerisinde bulunan demo.json dosyasındaki verilerin analizi üzerine yapılmıştır.
 
 ##### Uygulamanın içerdiği özellikler
 
